@@ -1,16 +1,15 @@
 <!DOCTYPE html>
-<html>
+<html data-theme="light">
   <head>
     <title>Ainfluencer</title>
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
-
     <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
     <%= javascript_include_tag "application", "data-turbo-track": "reload", type: "module" %>
+    <%= hotwire_livereload_tags if Rails.env.development? %>
   </head>
-
-  <body>
+  <body class=" container mx-auto py-10">
     <%= yield %>
   </body>
 </html>

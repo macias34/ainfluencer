@@ -1,0 +1,41 @@
+<%= form_with(model: character, class: "space-y-4") do |form| %>
+  <% if character.errors.any? %>
+    <div style="color: red">
+      <h2><%= pluralize(character.errors.count, "error") %> prohibited this character from being saved:</h2>
+      <ul>
+        <% character.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+  <div class="form-field">
+    <label class="form-label">Name</label>
+    <%= form.text_field :name, class: "input" %>
+    <label class="form-label">
+      <span class="form-label-alt">
+        This will be the name of your character.
+      </span>
+    </label>
+  </div>
+  <div class="form-field">
+    <label class="form-label">Personality</label>
+    <%= form.text_area :personality, class: "textarea" %>
+    <label class="form-label">
+      <span class="form-label-alt">
+        Describe your character's personality as best as you can.
+      </span>
+    </label>
+  </div>
+  <div class="form-field">
+    <label class="form-label">Base image</label>
+    <%= form.text_field :image_src, class: "input" %>
+    <label class="form-label">
+      <span class="form-label-alt">
+        Provide a URL to an image of your character.
+      </span>
+    </label>
+  </div>
+</div>
+<%= form.submit class: "btn btn-primary" %>
+<% end %>
