@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
-  resources :characters
+  resources :characters do
+    resources :tasks
+  end
   root "characters#index"
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
