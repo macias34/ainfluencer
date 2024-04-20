@@ -5,5 +5,5 @@ module.exports = {
     "./app/assets/stylesheets/**/*.css",
     "./app/javascript/**/*.js",
   ],
-  plugins: [require("rippleui")],
+  plugins: [require("@tailwindcss/typography"), require("rippleui")],
 };
