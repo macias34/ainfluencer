@@ -1,22 +1,9 @@
-<div id="<%= dom_id task %>">
-  <p>
-    <strong>Name:</strong>
+<div class="min-h-40 flex flex-col gap-2 card card-body" id="<%= dom_id task %>">
+  <p class="font-semibold text-lg">
     <%= task.name %>
   </p>
-
-  <p>
-    <strong>Image src:</strong>
-    <%= task.image_src %>
-  </p>
-
-  <p>
-    <strong>Description:</strong>
+  <p class=" text-content2">
     <%= task.description %>
   </p>
-
-  <p>
-    <strong>Character:</strong>
-    <%= task.character_id %>
-  </p>
-
+  <%= button_to "Use", character_task_results_path(@character, task), method: :post, class: "btn btn-primary ", form_class: "w-fit self-end"  %>
 </div>

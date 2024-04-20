@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2024_04_19_212537) do
+ActiveRecord::Schema[7.1].define(version: 2024_04_20_190435) do
   create_table "characters", force: :cascade do |t|
     t.string "name"
     t.text "personality"
@@ -19,13 +19,23 @@ ActiveRecord::Schema[7.1].define(version: 2024_04_19_212537) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "results", force: :cascade do |t|
+    t.text "content"
+    t.text "image_src"
+    t.integer "task_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["task_id"], name: "index_results_on_task_id"
+  end
+
   create_table "tasks", force: :cascade do |t|
     t.string "name"
-    t.string "image_src"
     t.text "description"
     t.integer "character_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.boolean "generate_image"
   end
 
+  add_foreign_key "results", "tasks"
 end

@@ -8,6 +8,8 @@ class CharactersController < ApplicationController
 
   # GET /characters/1 or /characters/1.json
   def show
+    @tasks = @character.tasks.order(created_at: :desc).limit(3)
+    @results = @tasks.map(&:results).flatten.sort_by(&:created_at).reverse.take(3)
   end
 
   # GET /characters/new
