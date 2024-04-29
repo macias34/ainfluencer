@@ -1,10 +1,17 @@
-<p style="color: green"><%= notice %></p>
-
-<%= render @result %>
-
-<div>
-  <%= link_to "Edit this result", edit_result_path(@result) %> |
-  <%= link_to "Back to results", results_path %>
-
-  <%= button_to "Destroy this result", @result, method: :delete %>
+<div class="min-h-40 flex flex-col gap-2" id="<%= dom_id @result %>">
+  <div class="flex gap-2 items-end mb-2">
+    <h2 class="text-3xl font-semibold">
+      <%= link_to "Result ##{@result.id}", character_result_path(@character, @result)  %>
+    </h2>
+    <%= link_to "All results", character_results_path(@character), class: "link link-primary link-underline-hover" %>
+  </div>
+  <div class="flex gap-20">
+    <img class=" aspect-square h-[512px]" src="<%= @result.image_src %>">
+    <div class=" text-content2 inline-flex flex-col gap-4">
+      <%= simple_format(@result.content) %>
+    </div>
+  </div>
+  <div class="w-full flex  mt-4 justify-end">
+    <%= button_to "Delete", character_result_path(@character, @result), method: :delete, class: "btn btn-error" %>
+  </div>
 </div>

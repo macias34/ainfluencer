@@ -2,14 +2,17 @@
 <%= render @character %>
 <div class="divider"></div>
 <div class=" flex flex-col gap-6">
-  <div class="flex gap-2 items-end">
-    <h2 class="text-3xl font-semibold">
-      Recently created tasks
-    </h2>
-    <%= link_to "All tasks", character_tasks_path(@character), class: "link link-primary link-underline-hover" %>
+  <div class="flex justify-between">
+    <div class="flex gap-2 items-end">
+      <h2 class="text-3xl font-semibold">
+        Recently created tasks
+      </h2>
+      <%= link_to "All tasks", character_tasks_path(@character), class: "link link-primary link-underline-hover" %>
+    </div>
+    <%= link_to "New task", new_character_task_path(@character), class: "btn btn-primary" %>
   </div>
   <div class="grid grid-cols-3 gap-10">
-    <%= render @tasks %>
+    <%= render @tasks, show_buttons: false %>
   </div>
 </div>
 <div class="divider"></div>
@@ -18,7 +21,7 @@
     <h2 class="text-3xl font-semibold">
       Recent results
     </h2>
-    <%= link_to "All results", "/", class: "link link-primary link-underline-hover" %>
+    <%= link_to "All results", character_results_path(@character), class: "link link-primary link-underline-hover" %>
   </div>
   <div class="grid grid-cols-3 gap-10">
     <%= render @results %>

@@ -1,5 +1,7 @@
-<%= render "form", character: @character %>
-<br>
-<div>
-  <%= link_to "Back to characters", characters_path %>
+<div class="flex gap-2 items-end">
+  <h2 class="text-3xl font-semibold">
+    Create character
+  </h2>
+  <%= link_to "Back to characters", characters_path, class: "link link-primary link-underline-hover" %>
 </div>
+<%= render "form", character: @character %>

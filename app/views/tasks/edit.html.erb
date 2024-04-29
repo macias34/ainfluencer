@@ -1,7 +1,7 @@
-<h1>Editing task</h1>
-<%= render "form", task: @task %>
-<br>
-<div>
-  <%= link_to "Show this task", character_tasks_path(@task) %> |
-  <%= link_to "Back to tasks", character_tasks_path %>
+<div class="flex gap-2 items-end">
+  <h2 class="text-3xl font-semibold">
+    Edit task
+  </h2>
+  <%= link_to "All tasks", character_tasks_path(@character), class: "link link-primary link-underline-hover" %>
 </div>
+<%= render "form", task: @task %>

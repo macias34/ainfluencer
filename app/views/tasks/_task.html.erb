@@ -1,9 +1,19 @@
-<div class="min-h-40 flex flex-col gap-2 card card-body" id="<%= dom_id task %>">
+<div class="min-h-40 flex flex-col gap-2 card card-body bg-transparent border" id="<%= dom_id task %>">
   <p class="font-semibold text-lg">
-    <%= task.name %>
+    <%= link_to task.name, character_task_path(@character, task)    %>
   </p>
   <p class=" text-content2">
     <%= task.description %>
   </p>
-  <%= button_to "Use", character_task_results_path(@character, task), method: :post, class: "btn btn-primary ", form_class: "w-fit self-end"  %>
+  <div class="w-full flex  mt-4 <%= show_buttons ? "justify-between" : "justify-end" %>">
+    <% if show_buttons %>
+      <div class="flex gap-2">
+        <%= link_to "Edit", edit_character_task_path(@character, task), class: "btn btn-secondary" %>
+        <%= button_to "Delete", character_task_path(@character, task), method: :delete, class: "btn btn-error" %>
+      </div>
+    <% end %>
+    <%= button_to "Use", character_results_path(@character), method: :post,
+    params: { task_id: task },
+    class: "btn btn-primary stop-propagation" %>
+  </div>
 </div>

@@ -5,15 +5,15 @@
   <div class=" pt-10 flex flex-col justify-between">
     <div class="flex flex-col gap-4">
       <h2 class=" text-4xl font-semibold">
-        <%= character.name %>
+        <%= link_to character.name , character_path(character) %>
       </h2>
       <p class=" text-content2">
-        <%= character.personality %>
+        <%= character.personality.truncate(1000) %>
       </p>
     </div>
-    <div class="flex gap-4">
-      <%= link_to "Edit this character", edit_character_path(@character), class: "btn" %>
-      <%= button_to "Destroy this character", @character, method: :delete, class: "btn btn-error" %>
+    <div class="flex gap-4 mt-4">
+      <%= link_to "Edit this character", edit_character_path(character), class: "btn stop-propagation" %>
+      <%= button_to "Destroy this character", @character, method: :delete, class: "btn btn-error stop-propagation" %>
     </div>
   </div>
 </div>

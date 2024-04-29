@@ -1,8 +1,7 @@
-<%= form_with(model: result) do |form| %>
+<%= form_with(model: [character, result]) do |form| %>
   <% if result.errors.any? %>
     <div style="color: red">
       <h2><%= pluralize(result.errors.count, "error") %> prohibited this result from being saved:</h2>
-
       <ul>
         <% result.errors.each do |error| %>
           <li><%= error.full_message %></li>
@@ -10,22 +9,18 @@
       </ul>
     </div>
   <% end %>
-
   <div>
     <%= form.label :content, style: "display: block" %>
     <%= form.text_area :content %>
   </div>
-
   <div>
     <%= form.label :image_src, style: "display: block" %>
     <%= form.text_area :image_src %>
   </div>
-
   <div>
     <%= form.label :task_id, style: "display: block" %>
     <%= form.text_field :task_id %>
   </div>
-
   <div>
     <%= form.submit %>
   </div>

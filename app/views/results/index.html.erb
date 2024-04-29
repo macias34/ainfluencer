@@ -1,14 +1,12 @@
 <p style="color: green"><%= notice %></p>
-
-<h1>Results</h1>
-
-<div id="results">
+<div class="flex gap-2 items-end mb-6">
+  <h2 class="text-3xl font-semibold">
+    Results
+  </h2>
+  <%= link_to "Back to character", character_path(@character), class: "link link-primary link-underline-hover" %>
+</div>
+<div id="tasks" class="flex flex-col gap-6">
   <% @results.each do |result| %>
     <%= render result %>
-    <p>
-      <%= link_to "Show this result", result %>
-    </p>
   <% end %>
 </div>
-
-<%= link_to "New result", new_result_path %>

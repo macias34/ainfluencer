@@ -1,4 +1,4 @@
-<%= form_with(model: [@character, @task]) do |form| %> <% if task.errors.any? %>
+<%= form_with(model: [@character, @task], class: "space-y-4") do |form| %> <% if task.errors.any? %>
     <div style="color: red">
       <h2><%= pluralize(task.errors.count, "error") %> prohibited this task from being saved:</h2>
       <ul>
@@ -8,15 +8,13 @@
       </ul>
     </div>
   <% end %>
-  <div>
-    <%= form.label :name, style: "display: block" %>
-    <%= form.text_field :name %>
+  <div class=" form-field">
+    <%= form.label :name, class: "form-label" %>
+    <%= form.text_field :name, class: "input" %>
   </div>
-  <div>
-    <%= form.label :description, style: "display: block" %>
-    <%= form.text_area :description %>
+  <div class="form-field">
+    <%= form.label :description, class: "form-label" %>
+    <%= form.text_area :description, class: " textarea !max-w-none w-4/5 h-96" %>
   </div>
-  <div>
-    <%= form.submit %>
-  </div>
+  <%= form.submit class: "btn btn-primary" %>
 <% end %>
